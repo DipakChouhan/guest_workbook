@@ -1,0 +1,35 @@
+.header {
+    height: 60px;
+    background-color: rgb(4, 51, 35);
+    align-items: center;
+    display: flex;
+    padding:5px;
+}
+
+img {
+    height: 70px;
+    width: 70px;
+    border-radius: 70px;
+}
+
+a {
+    /* align-items: center;
+    display: flex;
+    padding:5px; */
+    margin-left:15px;
+    padding:px;
+    color: white
+}
+
+.user-action {
+  float: right !important;
+  width: 100%;
+}
+
+.logout {
+  cursor: pointer;
+}
+
+.logo {
+    color: rgb(209, 199, 199);
+}

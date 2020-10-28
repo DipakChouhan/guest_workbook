@@ -1,0 +1,55 @@
+
+
+<div class="modal fade" id="guestFormModel">
+  <div class="modal-dialog modal-lg ">
+    <div class="modal-content">
+      <div class="modal-header text-dark">
+        Mode - <em> {{mode | titlecase}}</em>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+<!--      <div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--        <app-message></app-message>-->
+<!--      </div>-->
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row" id="createTodoForm">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <fieldset [disabled]="mode=='view'" *ngIf="!guestEntryLocal.guestBookEntryImage">
+              <form [formGroup]="guestEntryForm" (ngSubmit)="onGuestEntryUpdate()" class="w-100" disabled="true">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <input type="text" class="form-control form-control" formControlName="guestBookEntryId" id="guestBookEntryId" style="display: none;">
+                    <label for="guestBookEntryText">Guest Entry Text</label>
+                    <textarea class="form-control" formControlName="guestBookEntryText" id="guestBookEntryText" rows="6"></textarea>
+                    <div *ngIf="guestEntryForm.controls['guestBookEntryText'].invalid
+                        && (guestEntryForm.controls['guestBookEntryText'].dirty || guestEntryForm.controls['guestBookEntryText'].touched)">
+                      <div *ngIf="guestEntryForm.controls['guestBookEntryText'].errors.required">
+                        <i class="text-danger">Entry text is required.</i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6 col-sm-6 col-md-12 col-lg-12 mt-3">
+                    <button type="submit" class="btn btn btn-success w-100" [disabled]="this.guestEntryForm.invalid">
+                      Save
+                      <!-- <span class="material-icons text-success">check_circle</span> -->
+                    </button>
+                  </div>
+                  <div class="col-6 col-sm-6 col-md-12 col-lg-12">
+                    <button type="reset" [disabled]="mode=='edit'" class="btn btn btn-secondary w-100" >
+                      Reset
+                      <!-- <span class="material-icons text-danger">cancel</span> -->
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </fieldset>
+            <div *ngIf="guestEntryLocal.guestBookEntryImage">
+              <img [src]="'data:image/jpeg;base64,'+ guestEntryLocal.guestBookEntryImage">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-confirmation-model></app-confirmation-model>

@@ -1,0 +1,20 @@
+<div class="header mb-3 w-100">
+    <h3 class="logo">GuestBook </h3> <h5 class="logo"><sup><i>app</i></sup></h5>
+    <div class="user-action">
+
+      <div *ngIf="isLoggedIn">
+        <span class="float-right text-warning logout" (click) = "logout()" data-toggle="tooltip" title="Logout">
+          Logout
+        </span>
+      </div>
+      |
+      <div>
+        <span class="float-right text-secondary">Welcome, <i class="text-white">{{username}}</i></span>
+      </div>
+    </div>
+</div>
+
+<!--<a href="#" routerLink="" data-toggle="tooltip" title="Home"-->
+<!--   class="text-primary ml-3 mt-3 text-center font-weight-bold">-->
+<!--  Home-->
+<!--</a>-->

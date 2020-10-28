@@ -1,0 +1,30 @@
+<app-header></app-header>
+<!--<div class="">-->
+<!--  &lt;!&ndash; Nav tabs &ndash;&gt;-->
+<!--  <div class="">-->
+    <div class="row" id="user">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12"></div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div>
+            <ul class="nav nav-tabs text-center w-100">
+                <li class="nav-item w-50">
+                    <a class="nav-link" routerLink="guestBookEntry" routerLinkActive="active" data-toggle="tab" href="#login">Create New Entry</a>
+                </li>
+                <li class="nav-item w-50">
+                    <a class="nav-link"  routerLink="userGuestEntryList" routerLinkActive="active"data-toggle="tab" href="#signup">View All Entries</a>
+                </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane container active mt-3">
+                    <router-outlet></router-outlet>
+                </div>
+            </div> <br>
+        </div>
+        <!-- <a class="text-center w-100"><i>Terms & Conditions</i></a> -->
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12"></div>
+    </div>
+<!--  </div>-->
+<!--&lt;!&ndash;  <router-outlet></router-outlet>&ndash;&gt;-->
+<!--</div>-->

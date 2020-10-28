@@ -1,0 +1,49 @@
+
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+    <app-message></app-message>
+  </div>
+</div>
+
+<h4>Guest Entry List</h4>
+
+<app-loader *ngIf="!dataLoaded"></app-loader>
+
+<div class="row" *ngIf="dataLoaded">
+  <div class="col-12 col-sm-12 col-md-4 col-lg-3" *ngFor="let guestEntry of guestEntryList">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-6">
+            <h6 class="text-secondary font-italic" *ngIf="guestEntry.status == 'Pending'">{{ guestEntry.status | titlecase  }}</h6>
+            <h6 class="text-success font-italic" *ngIf="guestEntry.status == 'Approved'">{{ guestEntry.status | titlecase  }}</h6>
+          </div>
+          <div class="col-6 text-right">
+            <a id="todo-edit" (click)="onGuestEntryApprove(guestEntry)" data-toggle="tooltip" title="Approve"
+               data-toggle="modal" data-target="#confirmationModel" *ngIf="guestEntry.status == 'Pending'">
+              <span class="material-icons text-primary">check</span>
+            </a>
+            <a id="todo-delete" (click)="onGuestEntryDelete(guestEntry)" data-toggle="tooltip" title="Delete"
+               data-toggle="modal" data-target="#confirmationModel">
+              <span class="material-icons text-danger">delete_outline</span>
+            </a>
+            <a (click)="onGuestEntryView(guestEntry)" data-toggle="tooltip" title="View"
+               data-toggle="modal" data-target="#guestFormModel" *ngIf="guestEntry.guestBookEntryText">
+              <span class="material-icons text-primary">preview</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div *ngIf="guestEntry.guestBookEntryText">
+          {{guestEntry.guestBookEntryText}}
+        </div>
+        <div *ngIf="!guestEntry.guestBookEntryText">
+          <img [src]="'data:image/jpeg;base64,'+ guestEntry.guestBookEntryImage">
+        </div>
+      </div>
+  </div>
+</div>
+
+<app-confirmation-model></app-confirmation-model>
+<app-guest-entry-form></app-guest-entry-form>

@@ -1,0 +1,13 @@
+.loader {
+    margin-top: 45px;
+    margin-bottom: 40px;
+    border:0px;
+    height: 100px;
+    align-items: center;
+    display: flex;
+}
+
+/* .spinner-border {
+    height: 60px;
+    width: 60px;
+} */

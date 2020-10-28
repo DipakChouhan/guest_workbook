@@ -1,0 +1,80 @@
+<a href="#" routerLink="" data-toggle="tooltip" title="Home"
+   class="text-primary ml-3 mt-3 text-center font-weight-bold">
+  Home
+</a>
+<div class="row mt-5">
+  <div class="col-4"></div>
+  <div class="col-4 border border-primary p-3">
+    <h4 class="text-center">Guest Book Sign Up!</h4>
+    <fieldset>
+      <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()" class="w-100">
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <app-message></app-message>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <label>Name</label>
+            <input type="text" formControlName="name" class="form-control" id="name" name="name"/>
+            <div *ngIf="signUpForm.controls['name'].invalid
+               && (signUpForm.controls['name'].dirty || signUpForm.controls['name'].touched)">
+              <div *ngIf="signUpForm.controls['name'].errors.required">
+                <i class="text-danger">Name is required.</i>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <label>Email</label>
+            <input type="email" class="form-control" formControlName="email" id="email" name="email">
+            <div *ngIf="signUpForm.controls['email'].invalid
+              && (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)">
+              <div *ngIf="signUpForm.controls['email'].errors.required">
+                <i class="text-danger">Email is required.</i>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <label>Username</label>
+            <input type="text" formControlName="username" class="form-control" id="username" name="username"/>
+            <div *ngIf="signUpForm.controls['username'].invalid
+              && (signUpForm.controls['username'].dirty || signUpForm.controls['username'].touched)">
+              <div *ngIf="signUpForm.controls['username'].errors.required">
+                <i class="text-danger">Username is required.</i>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password" id="password" name="password">
+            <div *ngIf="signUpForm.controls['password'].invalid
+              && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)">
+              <div *ngIf="signUpForm.controls['password'].errors.required">
+                <i class="text-danger">Password is required.</i>
+              </div>
+              <div *ngIf="signUpForm.controls['password'].errors.minlength">
+                <i class="text-danger">Password must be greater than 6 characters</i>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-md-12 col-lg-12 mt-3">
+            <button type="submit" class="btn btn btn-success w-100" [disabled]="this.signUpForm.invalid">
+              Sign Up
+              <!-- <span class="material-icons text-success">check_circle</span> -->
+            </button>
+          </div>
+          <div class="col-6 col-sm-6 col-md-12 col-lg-12">
+            <button type="reset" class="btn btn btn-secondary w-100" >
+              Clear
+              <!-- <span class="material-icons text-danger">cancel</span> -->
+            </button>
+          </div>
+          <a href="#" routerLink="/login" data-toggle="tooltip" title="Login"
+             class="text-primary ml-3 mt-3 text-center font-weight-bold">
+            Click Here To Login
+          </a>
+        </div>
+      </form>
+    </fieldset>
+  </div>
+  <div class="col-4"></div>
+</div>
+

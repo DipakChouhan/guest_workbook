@@ -1,0 +1,27 @@
+<!-- confirmation Model insertions here -->
+<!-- The Modal -->
+<div class="modal fade" id="confirmationModel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+<!--        &lt;!&ndash; Modal Header &ndash;&gt;-->
+<!--        <div class="modal-header">-->
+<!--          <h4 class="modal-title">Are you sure?</h4>-->
+<!--          <button type="button" class="close" data-dismiss="modal">&times;</button>-->
+<!--        </div>-->
+
+        <!-- Modal body -->
+        <div class="modal-body">
+            Please confirm to proceed!
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" (click)="onYes()"
+          class="btn btn-danger" data-dismiss="modal">Confirm</button>
+          <button type="button" class="btn btn-light" data-dismiss="modal">Reject</button>
+        </div>
+
+      </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<input type="checkbox" value="" id="uploadImage" (change)="onOptionChange($event)">
+<label class="form-check-label ml-2" for="uploadImage">
+  <i>Select to Upload Image</i>
+</label>
+
+<div class="row mt-3">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+    <app-message></app-message>
+  </div>
+</div>
+
+<fieldset *ngIf="!selectImage">
+  <form [formGroup]="guestEntryForm" (ngSubmit)="onGuestEntryFormSubmit()" class="w-100" disabled="true">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <label for="guestBookEntryText">Guest Entry Text</label>
+        <textarea class="form-control" formControlName="guestBookEntryText" id="guestBookEntryText" rows="6"></textarea>
+        <div *ngIf="guestEntryForm.controls['guestBookEntryText'].invalid
+          && (guestEntryForm.controls['guestBookEntryText'].dirty || guestEntryForm.controls['guestBookEntryText'].touched)">
+          <div *ngIf="guestEntryForm.controls['guestBookEntryText'].errors.required">
+            <i class="text-danger">Entry text is required.</i>
+          </div>
+        </div>
+      </div>
+<!--      <div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--        <label>Name</label>-->
+<!--        <input type="text" formControlName="name" class="form-control" id="name" name="name"/>-->
+<!--        &lt;!&ndash;            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">&ndash;&gt;-->
+<!--        &lt;!&ndash;              <div *ngIf="f.name.errors.required">Name is required</div>&ndash;&gt;-->
+<!--        &lt;!&ndash;            </div>&ndash;&gt;-->
+<!--      </div>-->
+<!--      <div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--        <label>Address</label>-->
+<!--        <input type="text" class="form-control" formControlName="address" id="address" name="address">-->
+<!--      </div>-->
+<!--      <div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--        <label class="radio-inline"><input type="radio" formControlName="gender" value="1" name="gender"> Male</label>-->
+<!--        <label class="radio-inline ml-2"><input type="radio" formControlName="gender" value="2" name="gender"> Female</label>-->
+<!--      </div>-->
+<!--      <div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--        <label>Phone Number</label>-->
+<!--        <input type="text" formControlName="phoneNo" class="form-control" id="phoneNo" name="phoneNo"/>-->
+<!--      </div>-->
+<!--      <div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--        <label>Identity Number</label>-->
+<!--        <input type="text" class="form-control" formControlName="identityId" id="identityId" name="identityId">-->
+<!--      </div>-->
+
+<!--      <h3 class="text-center w-100 mt-3">OR</h3>-->
+
+<!--      <div class="col-12 col-sm-12 col-md-12 col-lg-12">-->
+<!--        <input type="file" class="" id="file" formControlName="file">-->
+<!--      </div>-->
+
+      <div class="col-6 col-sm-6 col-md-12 col-lg-12 mt-3">
+        <button type="submit" class="btn btn btn-success w-100" [disabled]="this.guestEntryForm.invalid">
+          Create Entry
+          <!-- <span class="material-icons text-success">check_circle</span> -->
+        </button>
+      </div>
+      <div class="col-6 col-sm-6 col-md-12 col-lg-12">
+        <button type="reset" class="btn btn btn-secondary w-100" >
+          Clear
+          <!-- <span class="material-icons text-danger">cancel</span> -->
+        </button>
+      </div>
+    </div>
+  </form>
+</fieldset>
+
+<fieldset *ngIf="selectImage">
+  <form [formGroup]="guestEntryImageForm" (ngSubmit)="onGuestEntryImageFormSubmit()" class="w-100">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <input type="file" formControlName="file" id="file" (change) = onFileChanged($event)>
+      </div>
+      <div class="col-6 col-sm-6 col-md-12 col-lg-12 mt-3">
+        <button type="submit" class="btn btn btn-success w-100" [disabled]="selectedFile == null">
+          Create Entry
+          <!-- <span class="material-icons text-success">check_circle</span> -->
+        </button>
+      </div>
+      <div class="col-6 col-sm-6 col-md-12 col-lg-12">
+        <button type="reset" class="btn btn btn-secondary w-100" (click)="clearImageSelection()">
+          Clear
+          <!-- <span class="material-icons text-danger">cancel</span> -->
+        </button>
+      </div>
+    </div>
+  </form>
+</fieldset>
+

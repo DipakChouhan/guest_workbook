@@ -1,0 +1,21 @@
+.login-signup {
+    border: 1px solid rgb(218, 221, 218);
+    border-radius: 5px;
+    padding:8px
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show {
+    color:rgb(110, 4, 63);
+    /* background-color: rgb(2, 75, 51); */
+    border-color: white;
+    border-radius: 0%;
+    font-weight: bolder;
+}
+
+.nav-link {
+    background-color: white;
+    color: gray;
+}
+
+li a:hover {
+    border-color: white;
+}
